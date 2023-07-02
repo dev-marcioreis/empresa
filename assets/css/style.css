@@ -163,6 +163,15 @@ img {
 }
 
 
+/*==========Media Query Mobile Scrollbar==========*/
+@media (max-width: 768px) {
+  .scrollbar, .progress-scrollbar {
+    display: none;
+  }
+
+}
+
+
 /*==========Scroll Up==========*/
 .scroll__up {
   position: fixed;
@@ -307,9 +316,6 @@ img {
 .navbar__item .navbar__link a:hover {
   color: var(--color-blue);
 }
-.navbar__item .navbar__link a.active {
-  color: var(--color-blue);
-}
 .navbar__active {
   position: absolute;
   left: 0;
@@ -329,7 +335,7 @@ img {
   box-shadow: var(--shadow);
 }
 
-/*==========Media Query Mobile==========*/
+/*==========Media Query Mobile Header==========*/
 @media (max-width: 992px) {
   .open__btn, .close__btn {
     display: inline-block;
@@ -422,4 +428,40 @@ img {
   height: 50%;
   background: var(--color-gradient);
   filter: blur(250px) contrast(1.5) brightness(1.5);
+}
+
+
+/*==========Media Query Tablet Home==========*/
+@media (max-width: 992px) {
+  .home {
+    margin-block-start: 15rem;
+  }
+  .home__container {
+    flex-direction: column-reverse;
+  }
+  .home__left, .home__right {
+    padding: 0;
+  }
+  .home__title {
+    font-size: 2.5rem;
+  }
+  .home__title strong {
+    font-size: 3rem;
+  }
+
+}
+
+
+/*==========Media Query Mobile Home==========*/
+@media (max-width: 768px) {
+  .home {
+    margin-block-start: 12rem;
+  }
+  .home__title {
+    font-size: 2rem;
+  }
+  .home__title strong {
+    font-size: 2.5rem;
+  }
+
 }

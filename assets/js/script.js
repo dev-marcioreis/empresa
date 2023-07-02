@@ -2,30 +2,11 @@
 let progressScrollbar = document.querySelector('.progress-scrollbar')
 let totalHeight = document.body.scrollHeight - window.innerHeight
 
-const section = document.querySelectorAll('section')
-const navLink = document.querySelectorAll('.navbar .navbar__item .navbar__link a')
-
 window.onscroll = function() {
 
     let progressHeight = (window.pageYOffset / totalHeight) * 100
     progressScrollbar.style.height = progressHeight + '%'
 
-    section.forEach(sec => {
-
-        const top = window.scrollY
-        const offset = sec.offsetTop - 150
-        const height = sec.offsetHeight
-        const id = sec.getAttribute('id')
-
-        if(top >= offset && top < offset + height) {
-
-            navLink.forEach(link => {
-                link.classList.remove('active')
-                document.querySelector('.navbar .navbar__item .navbar__link a[href*=' + id +']').classList.add('active')
-            })
-        }
-
-    })
 
 }
 
