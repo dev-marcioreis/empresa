@@ -59,10 +59,6 @@ const scrollReveal = ScrollReveal({
 })
 
 
-
-scrollReveal.reveal(`.header__logo`, {origin: 'top'})
-scrollReveal.reveal(`.navbar__item`, {origin: 'top', interval: 100})
-
-scrollReveal.reveal(`.home__left, .home__title, .title, .home__text`, {origin: 'bottom', delay: 800, interval: 100})
-scrollReveal.reveal(`.home__btns, a`, {origin: 'left', delay: 1000})
-scrollReveal.reveal(`.home__right`, {origin: 'right', delay: 1000})
+scrollReveal.reveal(`.home__left, .home__title, .title, .home__text`, {origin: 'bottom', delay: 100, interval: 100})
+scrollReveal.reveal(`.home__btns`, {origin: 'left', delay: 600})
+scrollReveal.reveal(`.home__right`, {origin: 'right', delay: 800})

@@ -24,7 +24,9 @@
   --color-transparent: hsla(0, 0%, 0%, 0);
   --color-blue: hsl(208, 100%, 50%);
   --color-light-blue: hsl(174, 100%, 50%);
+  --color-purple: hsl(273, 86%, 51%);
   --color-gradient: linear-gradient(90deg, hsl(146, 100%, 57%), hsl(198, 100%, 56%), hsl(250, 100%, 60%));
+  --color-gradient-1: linear-gradient(80deg, hsl(217, 80%, 80%) 10%, hsl(217, 85%, 78%) 40%);
   --color-gradient-scrollbar: linear-gradient(to top, var(--color-blue), var(--color-light-blue));
 
   --font-size: .9rem;
@@ -36,11 +38,7 @@
   --container-md: 90%;
   --container-max-wd: 1920px;
 
-  --shadow: 0px 1px 3px hsla(0, 0%, 0%, 0.5);
-  --shadow-1: 0px 10px 50px rgba(0, 0, 0, 0.048);
-  --shadow-2: -20px 15px 5px hsla(0, 0%, 0%, 0.5);
-  --shadow-3: -20px 15px 5px hsla(0, 0%, 0%, 0.212);
-  --shadow-4: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
+
 
 }
 
@@ -59,7 +57,6 @@ body {
 /*==========General Styles==========*/
 section {
   padding: 8rem 0;
-  height: 100vh;
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
@@ -103,6 +100,52 @@ img {
   background: var(--color-gradient);
   background-clip: text;
   -webkit-background-clip: text;
+}
+
+/*==========General Btns==========*/
+.btn {
+  position: relative;
+  background: var(--color-blue);
+  color: var(--color-white);
+  padding: .9rem 2.20rem;
+  border-radius: .2rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow-3);
+}
+.btn-name {
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 500;
+  transition: var(--transition);
+  z-index: 10;
+}
+.btn:hover .btn-name {
+  visibility: hidden;
+  opacity: 0;
+}
+.btn small{
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  pointer-events: none;
+  font-size: 1.5rem;
+  transition: var(--transition);
+  opacity: 0;
+}
+.btn__icon-whats {
+  transform: translate(10px, 5px);
+}
+.btn__icon-phone {
+  transform: translate(50px, 5px);
+}
+.btn__icon-messa {
+  transform: translate(90px, 5px);
+}
+.btn__icon-chat {
+  transform: translate(130px, 5px);
+}
+.btn:hover small {
+  opacity: 1;
 }
 
 
@@ -175,13 +218,12 @@ img {
 /*==========Scroll Up==========*/
 .scroll__up {
   position: fixed;
-  right: 2rem;
-  top: -100%;
+  right: 1rem;
+  bottom: -100%;
   width: 2rem;
   height: 2rem;
-  border-radius: .5rem;
-  background: var(--color-gradient);
-  box-shadow: var(--shadow);
+  border-radius: .2rem;
+  background: var(--color-blue);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,23 +237,16 @@ img {
 }
 .scroll__up i {
   font-size: 2rem;
-  color: var(--color-bg);
+  color: var(--color-white);
 }
 
 /*==========JavaScript==========*/
 .show-scroll {
-  top: 91%;
+  bottom: 1rem;
   opacity: 1;
   visibility: visible;
 }
 
-/*==========Media Query Mobile Scroll Up==========*/
-@media (max-width: 768px) {
-  .scroll__up {
-    right: 1.5rem;
-  }
-
-}
 
 
 /*==========Media Query==========*/
@@ -293,7 +328,7 @@ img {
   width: 1.5rem;
 }
 .logo__name {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 .navbar {
@@ -352,7 +387,6 @@ img {
     width: 100%;
     height: 100vh;
     background: var(--color-bg);
-    box-shadow: var(--shadow);
     padding: 1rem 2rem;
     transition: var(--transition);
   }
@@ -375,6 +409,11 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url('../images/bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .home__container {
   display: flex;
@@ -396,13 +435,6 @@ img {
 .home__text {
   margin-block-end: 2rem;
 }
-.btn {
-  background: var(--color-gradient);
-  padding: 1rem;
-}
-.home__right {
-  position: relative;
-}
 .home__right img {
   filter: brightness(1.2) contrast(1.2);
   transition: var(--transition);
@@ -417,17 +449,6 @@ img {
     transform: translateY(-2rem);
   }
 
-}
-
-.home__right::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 50%;
-  height: 50%;
-  background: var(--color-gradient);
-  filter: blur(250px) contrast(1.5) brightness(1.5);
 }
 
 

@@ -30,3 +30,4 @@ if(window.innerWidth < 992) {
 window.addEventListener('scroll', () => {
     document.querySelector('.header').classList.toggle('scrolling-header', window.scrollY)
 })
+
