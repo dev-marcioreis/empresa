@@ -25,9 +25,12 @@
   --color-blue: hsl(208, 100%, 50%);
   --color-light-blue: hsl(174, 100%, 50%);
   --color-purple: hsl(273, 86%, 51%);
+  --color-border: hsla(0, 0%, 100%, 0.102);
   --color-gradient: linear-gradient(90deg, hsl(146, 100%, 57%), hsl(198, 100%, 56%), hsl(250, 100%, 60%));
   --color-gradient-1: linear-gradient(80deg, hsl(217, 80%, 80%) 10%, hsl(217, 85%, 78%) 40%);
   --color-gradient-scrollbar: linear-gradient(to top, var(--color-blue), var(--color-light-blue));
+
+  --shadow-lines: hsla(233, 87%, 6%, 0) 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, hsl(234, 88%, 6%) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, hsl(234, 88%, 6%) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, hsl(234, 88%, 6%) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, hsl(234, 88%, 6%) 40px -40px;
 
   --font-size: .9rem;
   --line-height: 1.6;
@@ -37,8 +40,6 @@
   --container-lg: 80%;
   --container-md: 90%;
   --container-max-wd: 1920px;
-
-
 
 }
 
@@ -105,49 +106,73 @@ img {
 /*==========General Btns==========*/
 .btn {
   position: relative;
+  display: inline-block;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  color: var(--color-blue);
+  font-weight: 700;
+  border: 1px solid var(--color-border);
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.btn:hover {
   background: var(--color-blue);
   color: var(--color-white);
-  padding: .9rem 2.20rem;
-  border-radius: .2rem;
-  transition: var(--transition);
-  box-shadow: var(--shadow-3);
+  transform: scale(1.1);
+  transition-delay: 1s;
 }
-.btn-name {
-  position: relative;
-  text-transform: capitalize;
-  font-weight: 500;
-  transition: var(--transition);
-  z-index: 10;
-}
-.btn:hover .btn-name {
-  visibility: hidden;
-  opacity: 0;
-}
-.btn small{
+.btn span {
   position: absolute;
-  inset: 0;
-  margin: auto;
-  pointer-events: none;
-  font-size: 1.5rem;
-  transition: var(--transition);
-  opacity: 0;
+  display: block;
 }
-.btn__icon-whats {
-  transform: translate(10px, 5px);
+.btn span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-transparent), var(--color-blue));
 }
-.btn__icon-phone {
-  transform: translate(50px, 5px);
+.btn:hover span:nth-child(1) {
+  left: 100%;
+  transition: 1s;
 }
-.btn__icon-messa {
-  transform: translate(90px, 5px);
+.btn span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(270deg, var(--color-transparent), var(--color-blue));
 }
-.btn__icon-chat {
-  transform: translate(130px, 5px);
+.btn:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: .5s;
 }
-.btn:hover small {
-  opacity: 1;
+.btn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--color-transparent), var(--color-blue));
 }
-
+.btn:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: .25s;
+}
+.btn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(360deg, var(--color-transparent), var(--color-blue));
+}
+.btn:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: .75s;
+}
 
 
 /*==========Scrollbar==========*/
@@ -158,7 +183,7 @@ img {
   position: fixed;
   top: 0;
   right: 0;
-  width: .5rem;
+  width: .2rem;
   height: 100%;
   background: var(--color-bg);
   z-index: 999;
@@ -167,7 +192,7 @@ img {
   position: fixed;
   top: 0;
   right: 0;
-  width: .5rem;
+  width: .2rem;
   border-radius: 0 0 1rem 1rem ;
   background: var(--color-gradient-scrollbar);
   z-index: 999;
@@ -367,7 +392,6 @@ img {
 /*==========JavaScript==========*/
 .scrolling-header {
   background: var(--color-bg);
-  box-shadow: var(--shadow);
 }
 
 /*==========Media Query Mobile Header==========*/
@@ -409,80 +433,68 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('../images/bg.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
 }
 .home__container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.home__left, .home__right {
-  padding: 1rem .5rem;
-}
 .home__title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 200;
   color: var(--color-white);
 }
 .home__title strong {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
 }
 .home__text {
-  margin-block-end: 2rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-block-end: 3rem;
+  color: var(--color-transparent);
+  background: var(--color-gradient-scrollbar);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 .home__right img {
-  filter: brightness(1.2) contrast(1.2);
-  transition: var(--transition);
-  animation: float 5s linear infinite;
+  box-shadow: var(--shadow-lines);
+}
+.home__left, .home__right {
+  padding: 0 1rem;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2rem);
-  }
-
-}
 
 
 /*==========Media Query Tablet Home==========*/
 @media (max-width: 992px) {
   .home {
-    margin-block-start: 15rem;
+    margin-block-start: 10rem;
   }
   .home__container {
     flex-direction: column-reverse;
   }
-  .home__left, .home__right {
+  .home__right {
+    margin-block-end: 1.5rem;
+    padding: 0 2rem 0 0;
+  }
+  .home__left {
     padding: 0;
+    text-align: center;
   }
   .home__title {
-    font-size: 2.5rem;
+    font-size: 1.7rem;
   }
   .home__title strong {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
 }
 
-
 /*==========Media Query Mobile Home==========*/
 @media (max-width: 768px) {
   .home {
-    margin-block-start: 12rem;
-  }
-  .home__title {
-    font-size: 2rem;
-  }
-  .home__title strong {
-    font-size: 2.5rem;
+    margin-block-start: 7rem;
   }
 
 }
