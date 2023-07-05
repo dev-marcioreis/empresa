@@ -50,6 +50,41 @@ links.forEach(link => {
 })
 
 
+// CTA GSAP
+const timeline = gsap.timeline()
+
+timeline.from(".image__box", 1, {
+    y: -100,
+    opacity: 0,
+    stagger: .2
+})
+
+gsap.timeline({
+    scrollTrigger: {
+        trigger: '.cta__content',
+        start: 'top top',
+        scrub: 1
+    }
+})
+.to('.image__overlay', {
+    height: '110%', 
+    ease: Expo.easeOut
+}, 'start')
+.to('.image__box', {
+    ease: Expo.ease
+}, 'start')
+
+gsap.timeline({
+    scrollTrigger: {
+        trigger: '.wrappe',
+        scrub: 7
+    }
+})
+.to('.wrapper__slider', 1, {
+    x: innerWidth * -1
+})
+
+
 // Scroll Reveal Animation
 const scrollReveal = ScrollReveal({
     distance: '60px',
