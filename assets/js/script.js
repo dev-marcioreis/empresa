@@ -67,22 +67,13 @@ gsap.timeline({
     }
 })
 .to('.image__overlay', {
-    height: '110%', 
+    height: '105%', 
     ease: Expo.easeOut
 }, 'start')
 .to('.image__box', {
     ease: Expo.ease
 }, 'start')
 
-gsap.timeline({
-    scrollTrigger: {
-        trigger: '.wrappe',
-        scrub: 7
-    }
-})
-.to('.wrapper__slider', 1, {
-    x: innerWidth * -1
-})
 
 
 // Scroll Reveal Animation
@@ -95,4 +86,6 @@ const scrollReveal = ScrollReveal({
 
 
 scrollReveal.reveal(`.home__left, .home__title, .home__text`, {origin: 'left', delay: 100, interval: 200})
-scrollReveal.reveal(`.home__right`, {origin: 'right', delay: 200})
+scrollReveal.reveal(`.home__image`, {origin: 'right', delay: 200})
+scrollReveal.reveal(`.wrapper__image`, {origin: 'bottom', delay: 600, interval: 100})
+
